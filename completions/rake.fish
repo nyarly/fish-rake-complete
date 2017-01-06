@@ -9,8 +9,8 @@ function __cache_or_get_rake_completion -d "Create rake completions"
     return 0
   end
 
-  __cache_zap rake $rf -not -mnewer $rfp/$rf
+  __cache_zap rake $rf -not -newer $rfp/$rf
   __cache_or_get rake $rf 'rake -T 2>&1 | sed -e "s/^rake \([a-z:_0-9!\-]*\).*#\(.*\)/\1	\2/"'
 end
 
-complete -r -c rake -a "(__cache_or_get_rake_completion)"
+complete -x -c rake -a "(__cache_or_get_rake_completion)"
